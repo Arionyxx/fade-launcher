@@ -1,0 +1,39 @@
+[package]
+name = "fade-launcher"
+version = "0.1.0"
+edition = "2021"
+authors = ["Your Name <your.email@example.com>"]
+description = "A sleek app launcher with pink and aqua blue gradient design"
+license = "MIT"
+
+[[bin]]
+name = "fade-launcher"
+path = "src/main.rs"
+
+[dependencies]
+eframe = "0.24"
+egui = "0.24"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.0", features = ["full"] }
+walkdir = "2.4"
+regex = "1.10"
+dirs = "5.0"
+image = "0.24"
+env_logger = "0.10"
+
+[dependencies.windows]
+version = "0.52"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Registry",
+    "Win32_UI_Shell",
+    "Win32_Storage_FileSystem",
+    "Win32_System_ProcessStatus",
+]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
